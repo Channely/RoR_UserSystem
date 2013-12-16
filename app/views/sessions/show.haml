@@ -1,0 +1,24 @@
+%div(style="min-height:520px" )
+  .container
+    .row.row-offcanvas.row-offcanvas-right
+      .col-xs-12.col-sm-9
+        %h1.text-success 找回密码
+        .span8
+          .form-horizontal
+            =form_for :answer, url: check_path do |f|
+              %fieldset
+                %hr
+                %hr
+                .form-group.has-success
+                  .col-sm-5.col-sm-offset-7
+                    %h4.text-success=@user[:question]
+                %hr
+                %hr
+                .form-group.has-success
+                  =f.label :user_answer, '回答：', class: 'col-sm-7 control-label'
+                  .col-sm-5
+                    =f.text_field :user_answer, class: 'form-control', type: 'text', placeholder: '密保答案'
+                .form-actions.col-sm-3.col-sm-offset-8
+                  %br
+                  =f.submit ' 提 交 ', class: 'btn btn-info btn-lg btn-block'
+                .col-sm-5=render 'shared/error_messages'

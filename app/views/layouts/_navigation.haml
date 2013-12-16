@@ -1,0 +1,12 @@
+.navbar.navbar-fixed-top.navbar-inverse{:role => "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %h3(style="margin: 0px" )= link_to '活动通', root_path, class: 'navbar-brand glyphicon glyphicon-ok-circle'
+    .navbar-collapse.in{:style => "height: auto;"}
+      %ul.nav.navbar-nav.navbar-right
+        = render 'layouts/navigation_links'

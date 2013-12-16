@@ -1,0 +1,43 @@
+%div(style="min-height:520px" )
+  .container
+    .row.row-offcanvas.row-offcanvas-right
+      .col-xs-12.col-sm-9
+        %h1.text-success
+          - unless admin?
+            注 册
+          - else
+            新增用户
+        .span8
+          .form-horizontal
+            =form_for :user, url: users_path, method: :post do |f|
+              %fieldset
+                .form-group.has-success
+                  =f.label :name, '昵 称 ：', class: 'col-sm-7 control-label'
+                  .col-sm-5
+                    =f.text_field :name, class: 'form-control', type: 'text', placeholder: '昵称'
+                .form-group.has-success
+                  =f.label :email, '邮 箱 ：', class: 'col-sm-7 control-label'
+                  .col-sm-5
+                    =f.email_field :email, class: 'form-control', type: 'email', placeholder: '邮箱'
+                .form-group.has-success
+                  =f.label :password, '密 码 ：', class: 'col-sm-7 control-label'
+                  .col-sm-5
+                    =f.password_field :password, class: 'form-control', type: 'password', placeholder: '密码'
+                .form-group.has-success
+                  =f.label :password_confirmation, '确认密码:', class: 'col-sm-7 control-label'
+                  .col-sm-5
+                    =f.password_field :password_confirmation, class: 'form-control', type: 'password', placeholder: '确认密码'
+                .form-group.has-success
+                  =f.label :question, '密保问题:', class: 'col-sm-7 control-label'
+                  .col-sm-5
+                    =f.text_field :question, class: 'form-control', type: 'text', placeholder: '密保问题'
+                .form-group.has-success
+                  =f.label :answer, '密保答案:', class: 'col-sm-7 control-label'
+                  .col-sm-5
+                    =f.text_field :answer, class: 'form-control', type: 'text', placeholder: '密保答案'
+                %hr
+                .form-actions.col-sm-3.col-sm-offset-6
+                  =f.submit ' 确 认 ', class: 'btn btn-success btn-lg btn-block'
+                .col-sm-3
+                  =link_to ' 重 置 ', signup_path, class:'btn btn-warning btn-lg btn-block'
+                =render 'shared/error_messages'

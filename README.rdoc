@@ -1,0 +1,22 @@
+
+* Ruby version
+	2.0.0-p247
+* Rails version
+	4.0
+
+* After you clone this project to your local-system,you nedd:
+	$ cd pb_server
+	$ bundle install
+	$ rake db:migrate
+	$ rails start
+
+* Guide:
+	# The man who sgin up as first user is admin. 
+	# Admin can add & edit & destroy user on index_page,which normal user can't.
+	# All users can signup with a password-security-question-answer.Which can help userself access his/her account directly.
+	# Everyuser can edit profile himself,but can't watch others.
+	# These is the ruler inside the user-system.
+	# Finished V-0.1 at 201312161535 by ccy,from ShiJiaZhuang.Pleasure for your using!
+
+
+

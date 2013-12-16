@@ -1,0 +1,32 @@
+%div(style="min-height:520px" )
+  .container
+    .row.row-offcanvas.row-offcanvas-right
+      .col-xs-12.col-sm-9
+        %h1.text-success 登 录
+        .span8
+          .form-horizontal
+            = form_for :session, url: sessions_path do |f|
+              %fieldset
+                %hr
+                %hr
+                %hr
+                .form-group.has-success
+                  =f.label :email, '邮 箱 ：', class: 'col-sm-7 control-label'
+                  .col-sm-5
+                    =f.email_field :email, class: 'form-control', type: 'email', placeholder: '邮箱'
+                %hr
+                .form-group.has-success
+                  =f.label :password, '密 码 ：', class: 'col-sm-7 control-label'
+                  .col-sm-5
+                    =f.password_field :password, class: 'form-control', type: 'password', placeholder: '密码'
+                %hr
+                .form-actions.col-sm-3.col-sm-offset-6
+                  =f.submit ' 确 认 ', class: 'btn btn-success btn-lg btn-block'
+                .col-sm-3
+                  =f.submit '忘记密码', class:'btn btn-warning btn-lg btn-block'
+      .form-actions.col-sm-2.col-sm-offset-6
+        %hr
+        %br
+        %p
+          游客？
+          = link_to "马上注册！", signup_path

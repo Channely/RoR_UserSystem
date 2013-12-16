@@ -1,0 +1,39 @@
+%div(style="min-height:500px" )
+  .col-sm-2
+    %table.table.table-hover.table-bordered
+      %thead
+        %tr.warning
+          %td.text-center
+            %h4
+              所有用户
+  .col-sm-2.col-sm-offset-8
+    %table.table.table-hover.table-bordered
+      %thead
+        %tr.warning
+          %td.text-center
+            = link_to '增加用户', add_user_path, class: 'btn btn-block glyphicon glyphicon-plus'
+  .table-responsive
+    %table.table.table-hover.table-bordered
+      %thead
+        %tr.success
+          %td id
+          %td 昵 称
+          %td 邮 箱
+          %td 密 码
+          %td 密保问题
+          %td 密保答案
+          %td.danger.text-center(colspan="2") 操作
+      %tbody
+        - @users.each do |user|
+          %tr.warning
+            %td=user.id
+            %td=user.name
+            %td=user.email
+            %td *******
+            %td *******
+            %td *******
+            %td= link_to '修改', edit_user_path(user), class: 'btn btn-block'
+            %td
+              - if admin? && !current_user?(user)
+                = link_to '删除', user, method: :delete, data: { confirm: "确认删除?" }, class: 'btn btn-block'
+
